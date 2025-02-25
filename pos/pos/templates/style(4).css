@@ -1,0 +1,4723 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Container for sidebar and content */
+.container {
+    display: flex;
+}
+
+/* Sidebar Styling */
+/* Sidebar Container */
+.sidebar h1{
+    font-size: 25px;
+    padding:10px;
+    color: rgb(222, 101, 26);
+}
+.sidebar {
+    width: 300px;
+    background-color: navy; /* Changed to navy blue */
+    color: white;
+    height: 100vh; /* Full viewport height */
+    padding-top: 20px;
+    position: fixed; /* Keep the sidebar fixed on the left */
+    top: 0;
+    left: 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Optional: add shadow for better visibility */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Sidebar List Styling */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 20px;
+}
+
+/* Sidebar List Item Styling */
+.sidebar ul li {
+    padding: 10px;
+    text-align: left;
+    position: relative;
+}
+
+/* Sidebar Links */
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 8px;
+    font-size: 16px; /* Adjust font size for better readability */
+    transition: background-color 0.3s, padding-left 0.3s;
+}
+
+/* Sidebar Link Hover Effect */
+.sidebar ul li a:hover {
+    background-color: #34495e;
+    padding-left: 15px; /* Subtle effect for hover interaction */
+}
+
+/* Submenu Styling */
+.submenu {
+    display: none; /* Initially hidden */
+    list-style: none;
+    padding-left: 20px;
+}
+
+/* Submenu List Item Styling */
+.submenu li {
+    padding: 5px 0;
+}
+
+/* Submenu Links Styling */
+.submenu li a {
+    color: #ddd;
+    font-size: 14px; /* Slightly smaller font for submenu items */
+}
+
+/* Submenu Link Hover Effect */
+.submenu li a:hover {
+    background-color: #2c3e50;
+}
+
+/* Show submenu on hover */
+.sidebar ul li:hover .submenu {
+    display: block;
+}
+
+/* Sidebar Icon Styling */
+.sidebar ul li a i {
+    margin-right: 10px; /* Space between icon and text */
+    font-size: 14px; /* Icon size */
+}
+
+/* Responsive Sidebar for Small Screens */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px; /* Make sidebar slightly narrower on smaller screens */
+    }
+
+    .sidebar h1 {
+        font-size: 20px;
+    }
+
+    .sidebar ul li a {
+        font-size: 14px;
+    }
+}
+
+
+/* Content Styling */
+.content {
+    width: calc(100% - 300px); /* Adjust width to account for the sidebar */
+    padding: 20px;
+    margin-left: 300px; /* Space for the sidebar */
+    background-color: #ecf0f1;
+    min-height: 100vh;
+}
+
+
+section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Hide content sections initially */
+.content-section {
+    display: none;
+}
+
+.form-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+.form-container h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.form-group label {
+    width: 150px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.form-group input,
+.form-group select {
+    width: 200px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-group button:hover {
+    background-color: #45a049;
+}
+
+.success-message {
+    color: green;
+    font-weight: bold;
+    margin-top: 15px;
+    display: none;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.grid-item {
+    margin-bottom: 10px;
+}
+
+.actions button {
+    padding: 10px 15px;
+    font-size: 16px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.actions button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.actions button[type="reset"] {
+    background-color: #f44336;
+    color: white;
+}
+
+.right-column {
+    width: 40%;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.monthly-sales {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    margin-left: 800px;
+    margin-bottom: 1200px;
+}
+
+
+/* General Section Styling */
+#invoicesSection     {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+/* Section Heading */
+#invoicesSection h2 {
+    font-size: 24px;
+    color: #333;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+/* Table Styling */
+#invoicesSection table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#invoicesSection table th,
+#invoicesSection table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+#invoicesSection table th {
+    background-color: #f4f4f4;
+    color: #555;
+    font-weight: bold;
+}
+
+#invoicesSection table td {
+    background-color: #fafafa;
+}
+
+#invoicesSection table tr:nth-child(even) td {
+    background-color: #f9f9f9;
+}
+
+#invoicesSection table tr:hover td {
+    background-color: #f1f1f1;
+}
+
+/* View Invoice Button */
+#invoicesSection table td button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#invoicesSection table td button:hover {
+    background-color: #45a049;
+}
+
+/* Note Section */
+#invoicesSection p {
+    font-size: 14px;
+    color: #555;
+    margin-top: 15px;
+}
+
+#invoicesSection p strong {
+    color: #333;
+}
+
+
+
+
+#customerSection {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+/* Section Heading */
+#customerSection h2 {
+    font-size: 24px;
+    color: #333;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+/* Form Styling */
+#customerSection form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Field Styling */
+.field {
+    margin-bottom: 15px;
+}
+
+.field label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.field input,
+.field select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+.field input:focus,
+.field select:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Submit and Reset Buttons Styling */
+#customerSection .button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+#customerSection .button:hover {
+    background-color: #45a049;
+}
+
+#customerSection .button[type="reset"] {
+    background-color: #f44336;
+}
+
+#customerSection .button[type="reset"]:hover {
+    background-color: #e53935;
+}
+
+
+/* Button Styling */
+#add-customerSection .button {
+    background-color: #4CAF50; /* Green for submit */
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 10px 0;
+    width: 100; /* Ensures buttons are responsive */
+}
+
+/* Hover Effect for Submit Button */
+#add-customerSection  .button:hover {
+    background-color: #45a049; /* Slightly darker green */
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+/* Hover Effect for Reset Button */
+#add-customerSection  button[type="reset"].button:hover {
+    background-color: #f44336; /* Red for reset */
+    transform: scale(1.05);
+}
+
+/* Active Button States */
+#add-customerSection .button:active {
+    transform: scale(0.98); /* Shrink button slightly when clicked */
+}
+
+/* Reset Button */
+#add-customerSection  button[type="reset"].button {
+    background-color: #f44336; /* Red for reset */
+}
+
+/* Customer List Section */
+#customers-listSectiont {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+/* Section Heading */
+#customers-listSection h2 {
+    font-size: 24px;
+    color: #333;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+/* Table Styling */
+#customers-listSection table {
+    width: 100%;
+    border-collapse: collapse; /* Ensures borders do not double */
+}
+
+/* Table Header Styling */
+#customers-listSection th {
+    background-color: #4CAF50; /* Green header background */
+    color: white;
+    font-size: 16px;
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd; /* Light border around header */
+}
+
+/* Table Body Styling */
+#customers-listSection td {
+    font-size: 14px;
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd; /* Light border around table cells */
+}
+
+/* Table Row Hover Effect */
+#customerList tr:hover {
+    background-color: #f5f5f5; /* Light gray background on hover */
+}
+
+/* Button Column Styling (for "View History" button) */
+#customers-listSection td button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#customers-listSection td button:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+}
+
+/* Discount Form Section */
+#add-discountSection {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+/* Section Heading */
+#add-discountSection h2 {
+    font-size: 24px;
+    color: #333;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+/* Field Container Styling */
+#add-discountSection .field {
+    margin-bottom: 20px;
+}
+
+/* Label Styling */
+#add-discountSection label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Input Fields and Select Styling */
+#add-discountSection input[type="date"],
+#add-discountSection input[type="number"],
+#add-discountSection select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+/* Checkbox Styling */
+#add-discountSection input[type="checkbox"] {
+    margin-top: 10px;
+}
+
+/* Button Styling */
+#add-discountSection button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+#add-discountSection button:hover {
+    background-color: #45a049;
+}
+
+#add-discountSection button[type="reset"] {
+    background-color: #f44336;
+}
+
+#add-discountSection button[type="reset"]:hover {
+    background-color: #e53935;
+}
+
+/* Product Wise Discount Section */
+#product-wise-discountSection {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+/* Section Heading */
+#product-wise-discountSection h2 {
+    font-size: 24px;
+    color: #333;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+/* Table Styling */
+#product-wise-discountSection table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Table Header Styling */
+#product-wise-discountSection th {
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 12px;
+    text-align: left;
+    font-size: 16px;
+    border: 1px solid #ccc;
+}
+
+/* Table Body Styling */
+#product-wise-discountSection td {
+    padding: 10px;
+    font-size: 14px;
+    color: #555;
+    border: 1px solid #ddd;
+}
+
+/* Table Hover Effect */
+#product-wise-discountSection tr:hover {
+    background-color: #f9f9f9;
+}
+/* Categories Section */
+#categoriesSection {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+/* Categories Title */
+#categoriesSection h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Categories Icon */
+#categoriesSection .icon.files-gallery {
+    font-size: 30px;
+    color: #8e44ad; /* Purple color for icon */
+    margin-bottom: 10px;
+}
+
+/* Overview Section */
+#categoriesSection .overview {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Overview Title */
+#categoriesSection .overview h4 {
+    font-size: 22px;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #8e44ad;
+    padding-bottom: 10px;
+}
+
+/* Overview Text */
+#categoriesSection .overview p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Add Bullet Points Before Each Overview Item */
+#categoriesSection .overview p::before {
+    content: "• "; /* Bullet point symbol */
+    color: #8e44ad;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+/* Hover Effect for Overview */
+#categoriesSection .overview:hover {
+    background-color: #f1f1f1;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Menu Buttons */
+#categoriesSection .menu {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#categoriesSection .menu button {
+    background-color: #8e44ad;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Button Hover Effects */
+#categoriesSection .menu button:hover {
+    background-color: #9b59b6;
+}
+
+
+
+/* Vendors Section */
+#vendorsSection {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+/* Vendors Heading */
+#vendorsSection h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Icon Styling */
+#vendorsSection .icon {
+    font-size: 28px;
+    color: #4CAF50;
+    margin-right: 10px;
+}
+
+/* Overview Section */
+/* Vendors Overview Section */
+#vendorsSection .overview {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Overview Title */
+#vendorsSection .overview h4 {
+    font-size: 22px;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 10px;
+}
+
+/* Overview Text */
+#vendorsSection .overview p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Add an Icon Before Each Overview Item */
+#vendorsSection .overview p::before {
+    content: "• "; /* Bullet point symbol */
+    color: #4CAF50;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+/* Highlight Specific Details */
+#vendorsSection .overview p strong {
+    color: #333;
+    font-weight: bold;
+}
+
+/* Hover Effect for Overview Section */
+#vendorsSection .overview:hover {
+    background-color: #f1f1f1;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Menu Button Group */
+#vendorsSection .menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Individual Menu Buttons */
+#vendorsSection .menu button {
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Hover Effect for Buttons */
+#vendorsSection .menu button:hover {
+    background-color: #45a049;
+}
+
+/* Disabled Button Style */
+#vendorsSection .menu button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Store Details Section */
+#store-detailsSection {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+/* Store Details Title */
+#store-detailsSection h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Store Details Icon */
+#store-detailsSection .icon.food-store {
+    font-size: 30px;
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+/* Overview Section */
+#store-detailsSection .overview {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Overview Title */
+#store-detailsSection .overview h4 {
+    font-size: 22px;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 10px;
+}
+
+/* Overview Text */
+#store-detailsSection .overview p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Add Bullet Points Before Each Overview Item */
+#store-detailsSection .overview p::before {
+    content: "• "; /* Bullet point symbol */
+    color: #4CAF50;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+/* Hover Effect for Overview */
+#store-detailsSection .overview:hover {
+    background-color: #f1f1f1;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Menu Buttons */
+#store-detailsSection .menu {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#store-detailsSection .menu button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Button Hover Effects */
+#store-detailsSection .menu button:hover {
+    background-color: #45a049;
+}
+
+/* Cashiers Section */
+#cashiersSection {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+/* Cashiers Title */
+#cashiersSection h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Cashiers Icon */
+#cashiersSection .icon.business-money-coins {
+    font-size: 30px;
+    color: #f39c12;
+    margin-bottom: 10px;
+}
+
+/* Overview Section */
+#cashiersSection .overview {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Overview Title */
+#cashiersSection .overview h4 {
+    font-size: 22px;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f39c12;
+    padding-bottom: 10px;
+}
+
+/* Overview Text */
+#cashiersSection .overview p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Add Bullet Points Before Each Overview Item */
+#cashiersSection .overview p::before {
+    content: "• "; /* Bullet point symbol */
+    color: #f39c12;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+/* Hover Effect for Overview */
+#cashiersSection .overview:hover {
+    background-color: #f1f1f1;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Menu Buttons */
+#cashiersSection .menu {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#cashiersSection .menu button {
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Button Hover Effects */
+#cashiersSection .menu button:hover {
+    background-color: #e67e22;
+}
+
+#add-stockSection {
+    padding: 20px;
+    background-color: #fff;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#add-stockSection h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#add-stockSection .field {
+    margin-bottom: 15px;
+}
+
+#add-stockSection .field label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+#add-stockSection .field input, 
+#add-stockSection .field select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+#add-stockSection .button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#add-stockSection .button:hover {
+    background-color: #45a049;
+}
+
+#current-stockSection {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#current-stockSection h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#current-stockSection table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#current-stockSection th, #current-stockSection td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+#current-stockSection th {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+#current-stockSection td {
+    background-color: #f9f9f9;
+}
+
+#current-stockSection .action-button {
+    padding: 5px 10px;
+    background-color: #FF9800;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#current-stockSection .action-button:hover {
+    background-color: #e68900;
+}
+
+#out-of-stockSection {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#out-of-stockSection h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#out-of-stockSection table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#out-of-stockSection th, #out-of-stockSection td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+#out-of-stockSection th {
+    background-color: #f44336;
+    color: #fff;
+}
+
+#out-of-stockSection td {
+    background-color: #f9f9f9;
+}
+
+#out-of-stockSection .action-button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#out-of-stockSection .action-button:hover {
+    background-color: #45a049;
+}
+
+#all-productsSection {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#all-productsSection h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#all-productsSection .filters {
+    margin-bottom: 20px;
+}
+
+#all-productsSection .filters label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#all-productsSection .filters select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+#all-productsSection table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#all-productsSection th, #all-productsSection td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+#all-productsSection th {
+    background-color: #2196F3;
+    color: #fff;
+}
+
+#all-productsSection td {
+    background-color: #f9f9f9;
+}
+
+#all-productsSection .action-button {
+    padding: 5px 10px;
+    background-color: #FF9800;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#all-productsSection .action-button:hover {
+    background-color: #e68900;
+}
+
+.parent-dashboard {
+    display: flex;
+    flex-direction: column; /* Stack child containers vertically */
+    gap: 20px; /* Space between the two containers */
+    width: 100%; /* Full width */
+}
+   .dashboard-container {
+    margin-bottom: 20px;
+    display: grid; /* Use grid layout */
+    grid-template-columns: 65.5% 34.5%; /* Two columns in the top row */
+    grid-template-rows: auto auto; /* Two rows: one for the chart + drawing, one for the info */
+    gap: 20px; /* Space between the columns and rows */
+    width: 100%;
+    padding: 20px;
+    background-color: #f4f6f9;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Chart column style */
+.chart-column {
+    grid-column: 1; /* First column */
+    padding: 10px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Drawing column style */
+.drawing-column {
+    grid-column: 2; /* Second column */
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+#paymentdue-infocolumn{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+/* Tablet column style */
+.tablet-column {
+
+    width: 60%;
+    padding-inline: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+ table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f4f6f9;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .action-btn {
+            padding: 5px 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .action-btn:hover {
+            background-color: #0056b3;
+        }
+   }
+  
+/* Info column style */
+.info-column {
+    width: 40%;
+    grid-column: 1 / span 2; /* Span both columns in the second row */
+    padding: 15px;
+    justify-self: end;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: transparent;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+
+
+/* Styling for each info row */
+.info-row {
+    background: linear-gradient(145deg, #f0f7ff, #e1f1fd); /* Gradient background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* Stack the number and label vertically */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* Info value */
+.info-row .value {
+    font-size: 30px; /* Larger digits */
+    font-weight: bold;
+    color: #27ae60; /* Green for positive numbers */
+    margin-bottom: 10px; /* Space between the value and the label */
+}
+
+/* Info title (label) */
+.info-row h3 {
+    font-size: 18px;
+    color: #333;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Info row placeholder text */
+.info-row .value-placeholder {
+    font-size: 30px; /* Larger digits for placeholder */
+    color: #95a5a6; /* Light gray for placeholders */
+    margin-bottom: 10px; /* Space between the value and the label */
+}
+
+/* Styling for the first row (two containers) */
+.info-row-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.info-row-row .info-row {
+    flex: 1;
+}
+
+/* Hover effect */
+.info-row:hover {
+    background: linear-gradient(145deg, #e1f1fd, #d1e5f6); /* Subtle change on hover */
+    box-shadow: 0 6px 14px rgba(0, 123, 255, 0.2); /* Slightly larger shadow on hover */
+    transform: translateY(-4px); /* Slight lift effect */
+}
+
+
+/*users table style */
+#UsersSection {
+    #UsersSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #usersTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+
+/* Roles Table Style */
+#roles-table {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 100vh; /* Adjust table height to fit within the container */
+    border: 1px solid #ddd; /* Add a boundary around the entire table container */
+}
+
+    #roles-table h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+        text-align: center; /* Center the heading */
+        border-bottom: 2px solid #4CAF50; /* Add a boundary line under the heading */
+        padding-bottom: 5px;
+    }
+
+#tableWrapper {
+    overflow-y: auto;
+    border: 1px solid #ccc; /* Add a boundary around the table wrapper */
+    padding: 10px; /* Add padding inside the wrapper */
+    border-radius: 5px; /* Round the corners */
+    background-color: #fff; /* Ensure a distinct background color */
+}
+
+.responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    border: 1px solid #ddd; /* Add a boundary around the table */
+}
+
+    .responsive-table th, .responsive-table td {
+        padding: 8px; /* Adjust padding for better spacing */
+        text-align: left;
+        border: 1px solid #ddd; /* Add boundaries around each cell */
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+        border: 1px solid #4CAF50; /* Distinct boundary for header cells */
+    }
+
+    .responsive-table td {
+        background-color: #f9f9f9;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+.action-btn {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px; /* Smaller font size for the button */
+}
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+
+
+/* SCA Table Style */
+#SalesCommissionAgentsSection {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 100vh; /* Adjust table height to fit within the container */
+    border: 1px solid #ddd; /* Add boundary around the section */
+}
+
+    #SalesCommissionAgentsSection h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+        text-align: center; /* Center the heading */
+        border-bottom: 2px solid #4CAF50; /* Add a bottom border for emphasis */
+        padding-bottom: 5px;
+    }
+
+#salescommissionagentsTableContainer {
+    border: 1px solid #ccc; /* Add boundary around the container */
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff; /* Ensure a distinct background color */
+}
+
+#tableWrapper {
+    overflow-y: auto;
+    border: 1px solid #ccc; /* Add boundary for the table wrapper */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    border: 1px solid #ddd; /* Add boundary around the table */
+}
+
+    .responsive-table th, .responsive-table td {
+        padding: 8px; /* Adjust padding for better spacing */
+        text-align: left;
+        border: 1px solid #ddd; /* Add boundary for each cell */
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+        border: 1px solid #4CAF50; /* Ensure header boundaries match header color */
+    }
+
+    .responsive-table td {
+        background-color: #f9f9f9;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+.action-btn {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px; /* Smaller font size for the button */
+}
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+
+/*Suppliers Table style */
+#SuppliersSection{
+        #SuppliersSection {
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 250px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #suppliersTableContainer h4 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        #searchContainer {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            margin-right: 10px;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        #tableWrapper {
+            overflow-y: auto;
+            height: 150px; /* Adjust table height to fit within the container */
+        }
+
+        .responsive-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .responsive-table th, .responsive-table td {
+            padding: 6px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            font-size: 12px; /* Reduced font size to fit more content */
+            word-wrap: break-word;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .responsive-table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .responsive-table td {
+            background-color: #f4f4f4;
+        }
+
+        .responsive-table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .action-btn {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px; /* Smaller font size for the button */
+        }
+
+        .action-btn:hover {
+            background-color: #45a049;
+        }
+}
+
+/*Customers Table style */
+#CustomersSection{
+        #CustomersSection {
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 250px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #customersTableContainer h4 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        #searchContainer {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            margin-right: 10px;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        #tableWrapper {
+            overflow-y: auto;
+            height: 150px; /* Adjust table height to fit within the container */
+        }
+
+        .responsive-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .responsive-table th, .responsive-table td {
+            padding: 6px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            font-size: 12px; /* Reduced font size to fit more content */
+            word-wrap: break-word;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .responsive-table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .responsive-table td {
+            background-color: #f4f4f4;
+        }
+
+        .responsive-table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .action-btn {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px; /* Smaller font size for the button */
+        }
+
+        .action-btn:hover {
+            background-color: #45a049;
+        }
+}
+/*Printlabel Table style */
+#PrintLabelSection {
+  
+    padding: 20px; /* Add padding inside the section */
+    background-color: #f8f9fa; /* Light grey background for the section */
+}
+
+.print-labels-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2, h3 {
+    color: #333;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.product-table th, .product-table td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.product-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.info-section {
+    margin-top: 20px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-item input[type="text"], .info-item select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.barcode-section {
+    margin-top: 20px;
+}
+
+.preview-button {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.preview-button button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.preview-button button:hover {
+    background-color: #0056b3;
+}
+
+
+/* Variations Table Styles */
+#VariationsSection {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+}
+
+    .responsive-table th, .responsive-table td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+        text-transform: uppercase;
+    }
+
+    .responsive-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .responsive-table td button {
+        background-color: #007BFF;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+        .responsive-table td button:hover {
+            background-color: #0056b3;
+        }
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .responsive-table, .responsive-table thead, .responsive-table tbody, .responsive-table th, .responsive-table td, .responsive-table tr {
+        display: block;
+    }
+
+        .responsive-table tr {
+            margin-bottom: 15px;
+        }
+
+        .responsive-table td {
+            text-align: right;
+            padding-left: 50%;
+            position: relative;
+        }
+
+            .responsive-table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                font-weight: bold;
+                text-align: left;
+            }
+
+
+
+
+       
+  /*Selling Price Groups Table style */
+#SellingPriceGroupsSection{
+
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .search-container {
+            text-align: right;
+            margin-bottom: 10px;
+        }
+
+        .search-container input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-container input[type="text"]:focus {
+            border-color: #007BFF;
+        }
+
+        /* Table Styles */
+        .responsive-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .responsive-table th, .responsive-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .responsive-table th {
+            background-color: #f4f4f4;
+        }
+
+        .responsive-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .responsive-table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .responsive-table td button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .responsive-table td button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .responsive-table, .responsive-table thead, .responsive-table tbody, .responsive-table th, .responsive-table td, .responsive-table tr {
+                display: block;
+            }
+
+            .responsive-table tr {
+                margin-bottom: 15px;
+            }
+
+            .responsive-table td {
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+            }
+
+            .responsive-table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                font-weight: bold;
+                text-align: left;
+            }
+        }
+
+/*Units table style */
+#UnitsSection {
+ /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .search-container {
+            text-align: right;
+            margin-bottom: 10px;
+        }
+
+        .search-container input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-container input[type="text"]:focus {
+            border-color: #007BFF;
+        }
+
+        /* Table Styles */
+        .responsive-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .responsive-table th, .responsive-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .responsive-table th {
+            background-color: #f4f4f4;
+        }
+
+        .responsive-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .responsive-table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .responsive-table td button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .responsive-table td button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .responsive-table, .responsive-table thead, .responsive-table tbody, .responsive-table th, .responsive-table td, .responsive-table tr {
+                display: block;
+            }
+
+            .responsive-table tr {
+                margin-bottom: 15px;
+            }
+
+            .responsive-table td {
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+            }
+
+            .responsive-table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                font-weight: bold;
+                text-align: left;
+            }
+        }
+
+/*Brands table style */
+#BrandsSection {
+    body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.dataTables_wrapper .dt-buttons {
+    float: right;
+    margin-bottom: 10px;
+}
+
+#searchInput {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+    #searchInput:focus {
+        border-color: #007BFF;
+    }
+     }
+
+
+/*Warranties table style */
+#WarrantiesSection{
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.dataTables_wrapper .dt-buttons {
+    float: right;
+    margin-bottom: 10px;
+}
+
+#searchInput {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+    #searchInput:focus {
+        border-color: #007BFF;
+    }
+     }
+
+/*Purchases Requisition table style */
+#PurchasesRequisitionSection {
+    body
+
+{
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.dataTables_wrapper .dt-buttons {
+    float: right;
+    margin-bottom: 10px;
+}
+
+#searchInput {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+    #searchInput:focus {
+        border-color: #007BFF;
+    }
+     }
+
+/*Purchase Order table style */
+#PurchaseRequisitionSection {
+    body
+
+{
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.dataTables_wrapper .dt-buttons {
+    float: right;
+    margin-bottom: 10px;
+}
+
+#searchInput {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+    #searchInput:focus {
+        border-color: #007BFF;
+    }
+     }
+
+
+/*List Purchase table style */
+#ListPurchaseSection {
+    body
+
+{
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.dataTables_wrapper .dt-buttons {
+    float: right;
+    margin-bottom: 10px;
+}
+
+#searchInput {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+    #searchInput:focus {
+        border-color: #007BFF;
+    }
+    }
+
+/* Add Purchases Section Styles */
+#AddPurchasesSection {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    #AddPurchasesSection h4 {
+        font-size: 1.5em;
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center;
+        border-bottom: 2px solid #4CAF50; /* Add emphasis with a bottom border */
+        padding-bottom: 10px;
+    }
+
+/* Table Container Styles */
+#addpurchasesTableContainer {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #fff;
+    width: 100%;
+    max-width: 1200px; /* Limit the table container width for better readability */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+/* Table Wrapper Styles */
+#tableWrapper {
+    overflow-x: auto; /* Enable horizontal scrolling for smaller screens */
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Table Styles */
+.responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+    .responsive-table th, .responsive-table td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+        text-transform: uppercase; /* Make headers uppercase for emphasis */
+    }
+
+    .responsive-table td {
+        background-color: #f9f9f9;
+    }
+
+    .responsive-table tr:nth-child(even) {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #e8f5e9; /* Subtle green hover effect */
+    }
+
+    /* Button Styles in Table */
+    .responsive-table td button {
+        padding: 6px 12px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px;
+    }
+
+        .responsive-table td button:hover {
+            background-color: #0056b3;
+        }
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 600px) {
+    #AddPurchasesSection {
+        padding: 15px;
+    }
+
+    .responsive-table, .responsive-table thead, .responsive-table tbody, .responsive-table th, .responsive-table td, .responsive-table tr {
+        display: block;
+    }
+
+        .responsive-table tr {
+            margin-bottom: 15px;
+        }
+
+        .responsive-table td {
+            text-align: right;
+            padding-left: 50%;
+            position: relative;
+        }
+
+            .responsive-table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                font-weight: bold;
+                text-align: left;
+            }
+}
+
+
+/* List Purchases Returned Section */
+#ListPurchasesReturnedSection {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    /* Section Heading */
+    #ListPurchasesReturnedSection h4 {
+        font-size: 1.5em;
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center;
+        border-bottom: 2px solid #4CAF50;
+        padding-bottom: 10px;
+    }
+
+/* Table Container */
+#listpurchasesreturnedTableContainer {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #fff;
+    width: 100%;
+    max-width: 1200px; /* Limit table container width */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+/* Table Wrapper */
+#tableWrapper {
+    overflow-x: auto; /* Allow horizontal scrolling for smaller screens */
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Table Styles */
+.responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+    .responsive-table th, .responsive-table td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+        text-transform: uppercase; /* Emphasize table headers */
+        font-size: 14px;
+    }
+
+    .responsive-table td {
+        background-color: #f9f9f9;
+    }
+
+    .responsive-table tr:nth-child(even) {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #e8f5e9; /* Subtle green hover effect */
+    }
+
+    /* Button Styles in Table */
+    .responsive-table td button {
+        padding: 6px 12px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px;
+    }
+
+        .responsive-table td button:hover {
+            background-color: #0056b3;
+        }
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 600px) {
+    #ListPurchasesReturnedSection {
+        padding: 15px;
+    }
+
+    .responsive-table, .responsive-table thead, .responsive-table tbody, .responsive-table th, .responsive-table td, .responsive-table tr {
+        display: block;
+    }
+
+        .responsive-table tr {
+            margin-bottom: 15px;
+        }
+
+        .responsive-table td {
+            text-align: right;
+            padding-left: 50%;
+            position: relative;
+        }
+
+            .responsive-table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                font-weight: bold;
+                text-align: left;
+            }
+
+/* List Drafts Section */
+#ListDraftsSection {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    /* Section Heading */
+    #ListPurchasesReturnedSection h4 {
+        font-size: 1.5em;
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center;
+        border-bottom: 2px solid #4CAF50;
+        padding-bottom: 10px;
+    }
+
+/* Table Container */
+#listpurchasesreturnedTableContainer {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #fff;
+    width: 100%;
+    max-width: 1200px; /* Limit table container width */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+/* Table Wrapper */
+#tableWrapper {
+    overflow-x: auto; /* Allow horizontal scrolling for smaller screens */
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Table Styles */
+.responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+    .responsive-table th, .responsive-table td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+        text-transform: uppercase; /* Emphasize table headers */
+        font-size: 14px;
+    }
+
+    .responsive-table td {
+        background-color: #f9f9f9;
+    }
+
+    .responsive-table tr:nth-child(even) {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #e8f5e9; /* Subtle green hover effect */
+    }
+
+    /* Button Styles in Table */
+    .responsive-table td button {
+        padding: 6px 12px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px;
+    }
+
+        .responsive-table td button:hover {
+            background-color: #0056b3;
+        }
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 600px) {
+    #ListPurchasesReturnedSection {
+        padding: 15px;
+    }
+
+    .responsive-table, .responsive-table thead, .responsive-table tbody, .responsive-table th, .responsive-table td, .responsive-table tr {
+        display: block;
+    }
+
+        .responsive-table tr {
+            margin-bottom: 15px;
+        }
+
+        .responsive-table td {
+            text-align: right;
+            padding-left: 50%;
+            position: relative;
+        }
+
+            .responsive-table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                font-weight: bold;
+                text-align: left;
+            }
+}
+
+
+/*BalanceSheet table style */
+#BalancesheetSection {
+    body
+
+{
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.balance-sheet-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.balance-sheet-section {
+    width: 48%;
+    margin-bottom: 20px;
+}
+
+    .balance-sheet-section h2 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+.responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .responsive-table th, .responsive-table td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .responsive-table th {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+.totals-row {
+    font-weight: bold;
+    background-color: #f4f4f4;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .balance-sheet-section {
+        width: 100%;
+    }
+}
+}
+
+/*TrialBalance table style */
+#TrialBalanceSection {
+    body
+
+{
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+    .responsive-table th, .responsive-table td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .responsive-table th {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+.totals-row {
+    font-weight: bold;
+    background-color: #f4f4f4;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .responsive-table th, .responsive-table td {
+        display: block;
+        width: 100%;
+        text-align: right;
+    }
+
+        .responsive-table th::before, .responsive-table td::before {
+            content: attr(data-label);
+            float: left;
+            font-weight: bold;
+        }
+
+    .responsive-table th, .responsive-table td {
+        text-align: right;
+        padding-left: 50%;
+    }
+}
+}
+
+/*Cashflow table style */
+#CashflowSection {
+    body
+
+{
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+    .responsive-table th, .responsive-table td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .responsive-table th {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+.totals-row {
+    font-weight: bold;
+    background-color: #f4f4f4;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .responsive-table th, .responsive-table td {
+        display: block;
+        width: 100%;
+        text-align: right;
+    }
+
+        .responsive-table th::before, .responsive-table td::before {
+            content: attr(data-label);
+            float: left;
+            font-weight: bold;
+        }
+
+    .responsive-table th, .responsive-table td {
+        text-align: right;
+        padding-left: 50%;
+    }
+}
+}
+
+/*AddPurchases table style */
+#AddPurchasesSection {
+    #AddPurchasesSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #addpurchasesTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+
+/*ListPOS table style */
+#ListPOSSection {
+    #ListPOSSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #listposTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+/* POS */
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f7f7f7;
+    color: #333;
+    padding: 10px;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+header .location, header .time {
+    font-size: 14px;
+}
+
+/* Main Container */
+.pos-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.customer-section {
+    width: 25%;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-right: 10px;
+}
+
+.customer-options, .agent-options, .staff-options {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+select, input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button.add-btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Search and Cart Section */
+.product-cart {
+    width: 70%;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.cart-table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+.cart-table th, .cart-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+
+.cart-table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.product-tile {
+    background-color: #f9f9f9;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 12px;
+}
+
+/* Footer Buttons */
+footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.footer-buttons {
+    display: flex;
+}
+
+.footer-buttons .btn {
+    margin-right: 5px;
+    padding: 8px 12px;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn.draft { background-color: #007BFF; }
+.btn.quotation { background-color: #FFA500; }
+.btn.suspend { background-color: #DC3545; }
+.btn.credit-sale { background-color: #6C757D; }
+.btn.card { background-color: #28A745; }
+.btn.cash { background-color: #17A2B8; }
+.btn.cancel { background-color: #FFC107; }
+
+.total-payable {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+/*SalesOrder table style */
+#SalesOrderSection {
+    #SalesOrderSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #salesorderTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+
+/*ListDrafts table style */
+#ListDraftsSection {
+    #ListDraftsSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #listdraftsTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+/*ListQuotation table style */
+#ListQuotationSection {
+    #ListQuotationSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #listquotationTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+
+/*All Sales table style */
+#AllSalesSection {
+    #AllSalesSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #allsalesTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+
+/*ListExpenses table style */
+#ListExpensesSection {
+    #ListExpensesSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #listexpensesTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+/*AddExpense table style */
+#AddExpenseSection {
+    #AddExpenseSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #addexpenseTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+
+/*Expense Categories table style */
+#ExpenseCategoriesSection {
+    #ExpenseCategoriesSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #expensecategoriesTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+
+/*List Accounts table style */
+#ListAccountsSection {
+    #ListAccountsSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #listaccountsTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+
+/*Profit/Loss Report table style */
+#Profit/LossSection {
+    #Profit/LossSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #profit/lossTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+
+/*Product Purchase Report table style */
+#ProductPurchaseReportSection {
+    #ProductPurchaseReportSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #productpurchasereportTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+
+/*Sales Representative Report table style */
+#SalesRepresentativeReportSection {
+    #SalesRepresentativeReportSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #salesrepresentativereportTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+
+/*Register Report table style */
+#RegisterReportSection {
+    #RegisterReportSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #registerreportTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+
+/*Expense Report table style */
+#ExpenseReportSection {
+    #ExpenseReportSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #expensereportTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+
+/*Sales Payment Report table style */
+#SalesPaymentReportSection {
+    #SalesPaymentReportSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #salespaymentreportTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+
+/*Purchase Payment Report table style */
+#PurchasePaymentReportSection {
+    #PurchasePaymentReportSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #purchasepaymentreportTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+/*Product Sale Report table style */
+#ProductSaleReportSection {
+    #ProductSaleReportSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #productsalereportTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+
+
+/*Items Report table style */
+#ItemsReportSection {
+    #ItemsReportSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #itemsreportTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+
+/*PurchaseandSale table style */
+#PurchaseandSaleSection {
+    #PurchaseandSaleSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #purchaseandsaleTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+
+/*Trending Products table style */
+#TrendingProductsSection {
+    #TrendingProductsSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #trendingproductsTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+
+
+/*Stock Adjustment Report table style */
+#StockAdjustmentReportSection {
+    #StockAdjustmentReportSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #stockadjustmentreportTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+
+/*Stock Report table style */
+#StockReportSection {
+    #StockReportSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #stockreportTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+
+/*SupplierandCustomer Report table style */
+#SupplierandCustomerReportSection {
+    #SupplierandCustomerReportSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #supplierandcustomerreportTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+
+/*Tax Report table style */
+#TaxReportSection {
+    #TaxReportSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #taxreportsTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+
+/*ServiceStaffReporttable style */
+#ServiceStaffReportSection {
+    #ServiceStaffReportSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #servicestaffreportTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+
+/*Payment Account Report table style */
+#PaymentAccountReportSection {
+    #PaymentAccountReportSection {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh; /* Adjust table height to fit within the container */
+
+    }
+
+    #paymentaccountreportTableContainer h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #tableWrapper {
+        overflow-y: auto;
+    }
+
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .responsive-table th, .responsive-table td {
+        padding: 6px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px; /* Reduced font size to fit more content */
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .responsive-table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .responsive-table td {
+        background-color: #f4f4f4;
+    }
+
+    .responsive-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px; /* Smaller font size for the button */
+    }
+
+    .action-btn:hover {
+        background-color: #45a049;
+    }
+}
+
+
